@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Color With React</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transform: translate(-5%, -10%);
+            background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+            linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+            linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        
+
+    </div>
+    <script type="text/babel">
+    function handleChange(e) {
+        e.target.value = e.target.value.toLowerCase();
+        let body = document.body.style;
+    body.background = e.target.value;
+    if(!(body.background==e.target.value)){
+        return false
+    }
+    else {
+        body.background = e.target.value;
+   setTimeout(() => {
+       e.target.value= ""; }, 1100)
+   }
+}
+    ReactDOM.render(
+        <div><h1>Check Color</h1>
+        <input type="text" 
+               placeholder="color"
+               onChange={handleChange} />
+        </div>,
+        document.getElementById("root")
+    )
+    
+    </script>
+</body>
+</html>
